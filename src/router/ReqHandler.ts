@@ -27,86 +27,6 @@ enum maxResults {
   googleplus = "maxResults",
 }
 
-enum smp_title {
-  youtube = "snippet.title",
-  twitter = "user.name",
-  flickr = "title",
-  dailymotion = "list.title",
-  vimeo = "name",
-  tumblr = "blog_name",
-  googleplus = "title",
-}
-
-enum smp_user {
-  youtube = "snippet.channelTitle",
-  twitter = "statuses.user.name",
-  flickr = "title",
-  dailymotion = "list.title",
-  vimeo = "user.name",
-  tumblr = "blog_name",
-  googleplus = "actor.displayName",
-}
-
-enum smp_url {
-  youtube = "snippet.thumbnails.default.url",
-  twitter = "statuses.source",
-  flickr = "id",
-  dailymotion = "list.url",
-  vimeo = "link",
-  tumblr = "post_url",
-  googleplus = "url",
-}
-
-enum smp_desc {
-  youtube = "snippet.description",
-  twitter = "statuses.text",
-  flickr = "id",
-  dailymotion = "list.description",
-  vimeo = "description",
-  tumblr = "summary",
-  googleplus = "object.attachments",
-}
-
-enum smp_views {
-  youtube = "kind",
-  twitter = "statuses.retweet_count",
-  flickr = "id",
-  dailymotion = "list.views_total",
-  vimeo = "metadata.connections.likes.total",
-  tumblr = "note_count",
-  googleplus = "object.replies.totalItems",
-}
-
-enum smp_embed {
-  youtube = "id.videoId",
-  twitter = "statuses.source",
-  flickr = "owner",
-  dailymotion = "list.embed_html",
-  vimeo = "embed.html",
-  tumblr = "short_url",
-  googleplus = "none",
-}
-
-enum smp_time {
-  youtube = "snippet.publishedAt",
-  twitter = "created_at",
-  flickr = "id",
-  dailymotion = "created_time",
-  vimeo = "created_time",
-  tumblr = "date",
-  googleplus = "published",
-}
-
-enum smp_resultname {
-  youtube = "",
-  twitter = "statuses",
-  flickr = "",
-  dailymotion = "list",
-  vimeo = "",
-  tumblr = "",
-  googleplus = "", //blanks mean api dosent have a specific result name
-}
-
 enum relevance {
   youtube = "relevance",
   googleplus = "best",
@@ -229,7 +149,7 @@ export class RequestHandler {
     Promise.all(myeditList)
       .then(values => {
         res.send(
-          this.new_mapResult(
+          this.mapResult(
             req.body.smpList,
             values,
             req.body.params.query,
@@ -297,7 +217,7 @@ export class RequestHandler {
    * @param resultCount
    * @description function to map result data to a simpler format
    */
-  public new_mapResult(
+  public mapResult(
     smpList: string[],
     data: JSON,
     q: string,
