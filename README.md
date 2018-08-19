@@ -8,14 +8,14 @@ This is our current working project on social search which is under development.
       {
          "name":"twitter",
          "params":{
-            "q":"imran khan"
+            "q":"kamran khan"
          }
       },
       {
          "name":"youtube",
          "params":{
             "part":"id,snippet",
-            "query":"imran khan"
+            "query":"kamran khan"
          }
       }
    ]
