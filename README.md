@@ -1,7 +1,7 @@
 # social-search-API
 This is our current working project on social search which is under development...
 
-### Sample post request using Postman and APi tester tool
+### Simple test query using postman or api tester tool by Event sharing team
 
 {
    "smpList":[
