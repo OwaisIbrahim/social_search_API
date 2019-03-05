@@ -28,6 +28,7 @@ class Server {
     // this.app.get("/", router);
     this.app.post("/search", this.req.handleAllRequest);
     this.app.post("/socialsearch", this.req.handleSocialSearchRequest);
+    this.app.post("/Wikipedia",this.req.handleWikipedia);
   }
 }
 

@@ -1,10 +1,12 @@
 import {Router, Request, Response, NextFunction} from "express";
 import SMP from "../controllers/SMP";
+import * as request from 'request'
 import SMPfactory from "../controllers/SMPFactory";
 import {Promise} from "es6-promise";
 
 import * as uni from "array-unique";
 import {log} from "util";
+
 
 const unique = uni.immutable;
 
@@ -89,6 +91,7 @@ export class RequestHandler {
     let numSocialMediaAccounts: number = 9;
     let myPromises = new Array(numSocialMediaAccounts);
     let myeditList = [];
+    console.log(req.body);
     // Cycle through all the user requested smps
     for (var _i = 0; _i < req.body.smpList.length; _i++) {
       // Generate smp
@@ -163,6 +166,33 @@ export class RequestHandler {
         res.send(err);
       });
   };
+
+  public handleWikipedia = (req : Request , res :Response) => {
+  
+    var Search = req.body.query;
+    var url = 'https://en.wikipedia.org/api/rest_v1/page/summary/'+Search;
+
+            request(url, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+               var obj = JSON.parse(body)
+               
+               res.send(obj.extract)
+             
+           }
+           else 
+           {
+               console.log("error")
+               res.send("error");
+           }
+      })
+
+     
+      
+
+
+
+  };
+ 
 
   public resolveEnum(str: string, myParams, res): {} {
     let params = {};
