@@ -20,3 +20,11 @@ This is our current working project on social search which is under development.
       }
    ]
 }
+
+### For testing wikipedia api using postman JSON/Application format
+
+{
+
+	"query" : "Imran Khan"
+}
+
